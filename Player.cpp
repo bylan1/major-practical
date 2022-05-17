@@ -2,39 +2,28 @@
 #include <string>
 #include <iostream>
 
-Player::Player(){
-    name = "";
-    marker = '\0';
-    move = 0;
+Player::Player(std::string name) : username(name){
+    input = 0;
 }
 
-// 
-std::string Player::getName(){
-    std::cout << "Enter name: ";
-    std::cin >> name;
-    return name;
-}
-
-// sets users marker
-char Player::getMarker(){
-    std::cout << "Choose your marker (x or o): ";
-    std::cin >> marker;
-    marker = tolower(marker);
-    while(marker != 'x' && marker != 'o'){
-        std::cout << "Invalid input. Choose marker (x or o): ";
-        std::cin >> marker;
+int Player::takeInput(){
+    std::cout << "Enter choice of square (1-9): ";
+    std::cin >> input;
+    while(!(input >= 1 && input <= 9)){
+        std::cout << "Invalid input. Enter choice of square (1-9): ";
+        std::cin >> input;
+        std::cout << input << std::endl;
+        // fix character inputs
     }
-    return marker;
+    return input;
 }
 
-// sets users move
-int Player::getMove(){
-    std::cout << "Choose your move (1-9): ";
-    std::cin >> move;
-    while(move < 1 || move > 9){
-        std::cout << "Invalid input. Choose your move (1-9): ";
-        std::cin >> move;
-        // figure out characters
-    }
-    return move;
+int Player::getRow(){
+    rowValue = (input-1)/3;
+    return rowValue;
+}
+
+int Player::getCol(){
+    colValue = (input+2)%3;
+    return colValue;
 }

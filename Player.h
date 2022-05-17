@@ -1,18 +1,18 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 #include <string>
-#include <iostream>
 
 class Player{
-    protected:
-        std::string name;
-        char marker;
-        int move;
+    private:
+        int input;
+        std::string username;
+        int rowValue;
+        int colValue;
     public:
-        Player();
-        std::string getName();
-        char getMarker();
-        int getMove();
+        Player(std::string name);
+        int takeInput();
+        int getRow();
+        int getCol();
 };
 
 #endif

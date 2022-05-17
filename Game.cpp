@@ -1,18 +1,12 @@
-#include "Player.h"
+#include "Game.h"
 #include "Grid.h"
+#include "Cell.h"
 #include <iostream>
 
-int main(){
-    int a;
-    Player dylan;
-    Grid playboard;
-    dylan.getName();
-    dylan.getMarker();
-    dylan.getMove();
-    std::cin >> a;
-    std::cout << a;
+Game::Game(){
+    Grid gameboard;
+}
 
-    playboard.enterMove(dylan);
-
-    return 0;
+void Game::run(){
+    
 }
