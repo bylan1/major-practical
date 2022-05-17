@@ -8,9 +8,14 @@ class Player{
         std::string username;
         int rowValue;
         int colValue;
+        char marker;
     public:
-        Player(std::string name);
-        int takeInput();
+        Player();
+        void setName();
+        std::string getName();
+        void setMarker();
+        char getMarker();
+        void setMove();
         int getRow();
         int getCol();
 };
