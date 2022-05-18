@@ -10,6 +10,7 @@ class Grid{
         Grid();
         void setCell(int x,int y,Cell state);
         bool evaluateGrid(Player player);
+        void displayGrid();
         ~Grid();
 };
 

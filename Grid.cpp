@@ -2,6 +2,8 @@
 #include "Cell.h"
 #include <iostream>
 
+extern void clr();
+
 // default grid constructor
 Grid::Grid(){
     for(int row=0; row<3; row++){
@@ -13,13 +15,14 @@ Grid::Grid(){
 
 // sets a cell at row x and column y to a cell state
 void Grid::setCell(int x,int y,Cell state){
+    // !stop replacing other cell states >> invalidate input
     *board[x][y] = state;
 }
 
 // determines if a player has won
-// incorporate player into win
+// !incorporate player into win
 bool Grid::evaluateGrid(Player player){
-    // fix board when null cells equate initially
+    // !fix board when null cells equate initially
     if(board[0][0]->getState()==board[1][1]->getState() && board[1][1]->getState()==board[2][2]->getState() && board[0][0]->getState()!='\0'){
         return true;
     }
@@ -37,6 +40,20 @@ bool Grid::evaluateGrid(Player player){
         }
     }
     return false;
+}
+
+void Grid::displayGrid(){
+    clr();
+    for(int row=0; row<3; row++){
+        for(int col=0; col<3; col++){
+            if(board[row][col]->getState()=='\0'){
+                std::cout << "   | ";
+            } else {
+                std::cout << " " << board[row][col]->getState() << " | ";
+            }
+        }
+        std::cout << std::endl;
+    }
 }
 
 // default grid deconstructor

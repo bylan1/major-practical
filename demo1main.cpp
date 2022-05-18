@@ -20,12 +20,14 @@ int main(){
         dylan.setMove();
         tempCell.setState(dylan.getMarker());
         gameboard.setCell(dylan.getRow(), dylan.getCol(), tempCell);
+        gameboard.displayGrid();
         if(gameboard.evaluateGrid(dylan)!=false){
             break;
         }
         melody.setMove();
         tempCell.setState(melody.getMarker());
         gameboard.setCell(melody.getRow(), melody.getCol(), tempCell);
+        gameboard.displayGrid();
     }
     std::cout << "player has won!" << std::endl;
     return 0;
