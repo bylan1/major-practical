@@ -22,7 +22,6 @@ void Grid::setCell(int x,int y,Cell state){
 // determines if a player has won
 // !incorporate player into win
 bool Grid::evaluateGrid(){
-    // !fix board when null cells equate initially
     if(board[0][0]->getState()==board[1][1]->getState() && board[1][1]->getState()==board[2][2]->getState() && board[0][0]->getState()!='\0'){
         winnerMarker = board[0][0]->getState();
         return true;
@@ -46,6 +45,7 @@ bool Grid::evaluateGrid(){
     return false;
 }
 
+// displays 3x3 grid
 void Grid::displayGrid(){
     clr();
     for(int row=0; row<3; row++){

@@ -3,10 +3,14 @@
 #include <string>
 #include "Cell.h"
 #include "Grid.h"
+#include "Player.h"
 
 class Game{
-    protected:
-        
+    private:
+        Grid gameboard;
+        Cell tempCell;
+        Player player1;
+        Player player2;
     public:
         Game();
         void run();
