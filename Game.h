@@ -9,6 +9,7 @@
 
 class Game{
     private:
+        Options options;
         MainMenu menu;
         Grid gameboard;
         Cell tempCell;

@@ -46,6 +46,8 @@ void Game::run(){
             std::cout << "under construction" << std::endl;
             break;
         case 3:
+            options.display();
+            options.setSelection();
             std::cout << "under construction" << std::endl;
             break;
         case 4:
