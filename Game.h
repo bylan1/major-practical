@@ -4,9 +4,12 @@
 #include "Cell.h"
 #include "Grid.h"
 #include "Player.h"
+#include "Options.h"
+#include "MainMenu.h"
 
 class Game{
     private:
+        MainMenu menu;
         Grid gameboard;
         Cell tempCell;
         Player player1;

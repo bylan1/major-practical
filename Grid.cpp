@@ -49,6 +49,7 @@ bool Grid::evaluateGrid(){
 void Grid::displayGrid(){
     clr();
     for(int row=0; row<3; row++){
+        std::cout << "|";
         for(int col=0; col<3; col++){
             if(board[row][col]->getState()=='\0'){
                 std::cout << "   | ";
