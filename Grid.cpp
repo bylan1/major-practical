@@ -15,26 +15,30 @@ Grid::Grid(){
 
 // sets a cell at row x and column y to a cell state
 void Grid::setCell(int x,int y,Cell state){
-    // !stop replacing other cell states >> invalidate input
+    // invalidate cells with non-null states
     *board[x][y] = state;
 }
 
 // determines if a player has won
 // !incorporate player into win
-bool Grid::evaluateGrid(Player player){
+bool Grid::evaluateGrid(){
     // !fix board when null cells equate initially
     if(board[0][0]->getState()==board[1][1]->getState() && board[1][1]->getState()==board[2][2]->getState() && board[0][0]->getState()!='\0'){
+        winnerMarker = board[0][0]->getState();
         return true;
     }
     if(board[0][2]->getState()==board[1][1]->getState() && board[1][1]->getState()==board[2][0]->getState() && board[0][2]->getState()!='\0'){
+        winnerMarker = board[0][2]->getState();
         return true;
     }
     for(int row = 0; row<3; row++){
         if(board[row][0]->getState()==board[row][1]->getState() && board[row][1]->getState()==board[row][2]->getState() && board[row][0]->getState()!='\0'){
+            winnerMarker = board[0][row]->getState();
             return true;
         }
         for(int col = 0; col<3; col++){
             if(board[0][col]->getState()==board[1][col]->getState() && board[1][col]->getState()==board[2][col]->getState() && board[0][col]->getState()!='\0'){
+                winnerMarker = board[0][col]->getState();
                 return true;
             }
         }

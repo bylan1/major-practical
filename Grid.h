@@ -8,8 +8,9 @@ class Grid{
         Cell* board[3][3];
     public:
         Grid();
+        char winnerMarker;
         void setCell(int x,int y,Cell state);
-        bool evaluateGrid(Player player);
+        bool evaluateGrid();
         void displayGrid();
         ~Grid();
 };
