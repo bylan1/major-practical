@@ -4,9 +4,11 @@
 
 extern void clr();
 
+// default constructor
 Options::Options() : scale(1){
 }
 
+// displays the options menu
 void Options::display(){
     clr();
     std::cout << "OPTIONS" << std::endl
@@ -15,6 +17,7 @@ void Options::display(){
     << "3. return to menu" << std::endl;
 }
 
+// changes values based on selection
 void Options::setSelection(){
     std::cout << "Pick a selection: ";
     std::cin >> selection;

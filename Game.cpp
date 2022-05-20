@@ -22,6 +22,7 @@ void Game::run(){
             while(player2.getMarker()==player1.getMarker()){
                 player2.setMarker();
             }
+            gameboard.displayGrid();
             while(gameboard.evaluateGrid()==false){
                 player1.setMove();
                 tempCell.setState(player1.getMarker());

@@ -2,6 +2,8 @@
 #include <string>
 #include <iostream>
 
+extern void clr();
+
 // default player constructor
 Player::Player(){
     input = 0;

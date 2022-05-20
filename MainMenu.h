@@ -5,6 +5,7 @@
 class MainMenu : public Menu{
     public:
         MainMenu();
+        int getSelection();
         void display();
 };
 

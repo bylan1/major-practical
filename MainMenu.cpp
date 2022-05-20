@@ -3,9 +3,15 @@
 
 extern void clr();
 
+// default constructor
 MainMenu::MainMenu(){
 }
 
+int MainMenu::getSelection(){
+    return selection;
+}
+
+// displays the main menu
 void MainMenu::display(){
     clr();
     std::cout << "ULTIMATE TIC-TAC-TOE" << std::endl

@@ -49,16 +49,18 @@ bool Grid::evaluateGrid(){
 void Grid::displayGrid(){
     clr();
     for(int row=0; row<3; row++){
+        std::cout << " --- --- ---" << std::endl;
         std::cout << "|";
         for(int col=0; col<3; col++){
             if(board[row][col]->getState()=='\0'){
-                std::cout << "   | ";
+                std::cout << "   |";
             } else {
-                std::cout << " " << board[row][col]->getState() << " | ";
+                std::cout << " " << board[row][col]->getState() << " |";
             }
         }
         std::cout << std::endl;
     }
+    std::cout << " --- --- ---" << std::endl;
 }
 
 // default grid deconstructor
