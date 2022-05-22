@@ -9,7 +9,6 @@ class Options : public Menu{
     public:
         Options();
         void display();
-        void setSelection();
 };
 
 #endif

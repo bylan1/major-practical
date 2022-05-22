@@ -16,21 +16,3 @@ void Options::display(){
     << "2. decrease grid scale" << std::endl
     << "3. return to menu" << std::endl;
 }
-
-// changes values based on selection
-void Options::setSelection(){
-    std::cout << "Pick a selection: ";
-    std::cin >> selection;
-    switch(selection){
-        case 1:
-            if(scale<3){
-                scale++;
-                break;
-            }
-        case 2:
-            if(scale>1){
-                scale--;
-                break;
-            }
-    }
-}

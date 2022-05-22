@@ -1,7 +1,6 @@
 #ifndef GAME_H
 #define GAME_H
 #include <string>
-#include "Cell.h"
 #include "Grid.h"
 #include "Player.h"
 #include "Options.h"
@@ -12,12 +11,11 @@ class Game{
         Options options;
         MainMenu menu;
         Grid gameboard;
-        Cell tempCell;
         Player player1;
         Player player2;
     public:
-        Game();
-        void run();
+        Game(); // default constructor
+        void run(); // runs entire game of ultimate tictactoe
 };
 
 #endif
