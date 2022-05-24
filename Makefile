@@ -6,9 +6,9 @@ compile: clear.cpp Options.cpp Menu.cpp MainMenu.cpp Grid.cpp OuterGrid.cpp Game
 run: main
 	./main
 
-git: clear.cpp MainMenu.cpp MainMenu.h Options.cpp Options.h Menu.cpp Menu.h Grid.cpp Player.cpp Game.cpp Game.h main.cpp Grid.h Player.h Makefile
-	git add clear.cpp MainMenu.cpp MainMenu.h Options.cpp Options.h Menu.cpp Menu.h Grid.cpp Player.cpp Game.cpp Game.h main.cpp Grid.h Player.h Makefile
-	git commit -m "demo1files"
+git: clear.cpp Options.cpp Options.h Menu.cpp Menu.h MainMenu.cpp MainMenu.h Grid.cpp Grid.h OuterGrid.cpp OuterGrid.h GameRun.cpp GameRun.h Player.cpp Player.h Game.cpp Game.h main.cpp Makefile
+	git add clear.cpp Options.cpp Options.h Menu.cpp Menu.h MainMenu.cpp MainMenu.h Grid.cpp Grid.h OuterGrid.cpp OuterGrid.h GameRun.cpp GameRun.h Player.cpp Player.h Game.cpp Game.h main.cpp Makefile
+	git commit -m "finalfiles"
 	git push
 
 testPlayer: clear.cpp Player.cpp PlayerDriver.cpp

@@ -22,7 +22,12 @@ void Game::run(){
                 game.runGame(options.getScale(), player1, player2);
                 break;
             case 2:
-                std::cout << "under construction" << std::endl;
+                while(menu.getSelection()!=1){
+                    std::cout << "HOW TO PLAY" << std::endl
+                    << "under construction" << std::endl
+                    << "1. return to menu" << std::endl;
+                    menu.setSelection();
+                }
                 break;
             case 3:
                 options.display();

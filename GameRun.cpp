@@ -68,8 +68,8 @@ void GameRun::runGame(int gamemode, Player p1, Player p2){
         }
     } else if(gamemode==2){
         clr();
-        while(board2->evaluateGrid()==false){
-            board2->displayOuterGrid();
+        board2->displayOuterGrid();
+        while(board2->evaluateGrid()==false && board2->drawGame()==false){
             std::cout << p1.getName() << "\'s turn (" << p1.getMarker() << ") : " << std::endl;
             p1.setGrid();
             while(board2->getGrid(p1.getRow(p1.getGridInput()),p1.getCol(p1.getGridInput())).evaluateGrid()==true){
@@ -81,7 +81,13 @@ void GameRun::runGame(int gamemode, Player p1, Player p2){
                 std::cout << "Invalid input. ";
                 p1.setMove();
             }
+            clr();
             board2->setCell(p1.getRow(p1.getGridInput()),p1.getCol(p1.getGridInput()),p1.getRow(p1.getMoveInput()),p1.getCol(p1.getMoveInput()),p1.getMarker());
+            if(board2->getGrid(p1.getRow(p1.getGridInput()),p1.getCol(p1.getGridInput())).drawGame()==true){
+                board2->refreshGrid(p1.getRow(p1.getGridInput()),p1.getCol(p1.getGridInput()));
+            }
+            board2->setWonGrid(p1.getRow(p1.getGridInput()),p1.getCol(p1.getGridInput()));
+            board2->displayOuterGrid();
             if(board2->evaluateGrid()==true){
                 winCase = 1;
                 break;
@@ -89,8 +95,6 @@ void GameRun::runGame(int gamemode, Player p1, Player p2){
                 winCase = 2;
                 break;
             }
-            clr();
-            board2->displayOuterGrid();
             std::cout << p2.getName() << "\'s turn (" << p2.getMarker() << ") : " << std::endl;
             p2.setGrid();
             while(board2->getGrid(p2.getRow(p2.getGridInput()),p2.getCol(p2.getGridInput())).evaluateGrid()==true){
@@ -102,15 +106,32 @@ void GameRun::runGame(int gamemode, Player p1, Player p2){
                 std::cout << "Invalid input. ";
                 p2.setMove();
             }
+            clr();
             board2->setCell(p2.getRow(p2.getGridInput()),p2.getCol(p2.getGridInput()),p2.getRow(p2.getMoveInput()),p2.getCol(p2.getMoveInput()),p2.getMarker());
+            if(board2->getGrid(p2.getRow(p2.getGridInput()),p2.getCol(p2.getGridInput())).drawGame()==true){
+                board2->refreshGrid(p2.getRow(p2.getGridInput()),p2.getCol(p2.getGridInput()));
+            }
+            board2->setWonGrid(p2.getRow(p2.getGridInput()),p2.getCol(p2.getGridInput()));
+            board2->displayOuterGrid();
+            if(board2->evaluateGrid()==true){
+                winCase = 1;
+                break;
+            } else if(board2->drawGame()==true){
+                winCase = 2;
+                break;
+            }
         }
         clr();
         board2->displayOuterGrid();
-        if(p1.getMarker()==board2->getWinner()){
-            std::cout << p1.getName() << " has won!" << std::endl;
-        }
-        if(p2.getMarker()==board2->getWinner()){
-            std::cout << p2.getName() << " has won!" << std::endl;
+        if(winCase==1){
+            if(p1.getMarker()==board1->getWinner()){
+                std::cout << p1.getName() << " has won!" << std::endl;
+            }
+            if(p2.getMarker()==board1->getWinner()){
+                std::cout << p2.getName() << " has won!" << std::endl;
+            }
+        } else if(winCase==2){
+            std::cout << "It\'s a draw!" << std::endl;
         }
     } else {
         std::cout << "failed test" << std::endl;

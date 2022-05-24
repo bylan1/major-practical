@@ -32,15 +32,16 @@ void OuterGrid::setWonGrid(int gridX, int gridY){
     }
 }
 
-bool OuterGrid::evaluateEachGrid(int gridX, int gridY){
-    if(outerboard[gridX][gridY]->evaluateGrid()==true){
-        return 1;
-    }
-    return 0;
-}
-
 Grid OuterGrid::getGrid(int gridX, int gridY){
     return *outerboard[gridX][gridY];
+}
+
+void OuterGrid::refreshGrid(int gridX, int gridY){
+    for(int i=0; i<3; i++){
+        for(int j=0; j<3; j++){
+            outerboard[gridX][gridY]->setCell(i,j,'\0');
+        }
+    }
 }
 
 void OuterGrid::displayOuterGrid(){
