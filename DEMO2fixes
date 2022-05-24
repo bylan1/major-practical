@@ -1,0 +1,25 @@
+DEMO 2 UPDATE REQUIREMENTS
+- appropriately incorporate essential features (polymorphism, abstract classes)
+//- make functional leaderboard
+- make menu functional
+- add comments to header files
+- make test files using different test methods
+- make project plan (including test methods)
+- adjust infinite loops
+// - use dynamic memory effectively
+
+SPECIFIC FIXES
+!- stop same marker selection
+!- SCREW LEADERBOARD
+!- figure out outer grid move placement
+!- make grid visuals better
+!- fix overlapping characters
+- make menu functional
+- make draw cases do something
+!- make options functional
+- write out instructions/tutorial for display
+- provide better visual for each player's turn
+
+GAMEMODE 2
+!- display win in a grid
+!- make a overall game win success

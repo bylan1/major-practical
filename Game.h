@@ -5,12 +5,13 @@
 #include "Player.h"
 #include "Options.h"
 #include "MainMenu.h"
+#include "GameRun.h"
 
 class Game{
     private:
         Options options;
         MainMenu menu;
-        Grid gameboard;
+        GameRun game;
         Player player1;
         Player player2;
     public:

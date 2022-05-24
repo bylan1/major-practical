@@ -4,11 +4,16 @@
 
 int main(){
     OuterGrid scaledGameboard;
-    for(int i=0; i<3; i++){
-        for(int j=0; j<3; j++){
-            scaledGameboard.setCell(0,0,i,j,'1');
-        }
-    }
+    scaledGameboard.setCell(0,1,0,0,'1');
+    scaledGameboard.setCell(0,1,0,1,'1');
+    scaledGameboard.setCell(0,1,0,2,'1');
+    scaledGameboard.setCell(0,1,1,0,'4');
+    scaledGameboard.setCell(0,1,1,1,'5');
+    scaledGameboard.setCell(0,1,1,2,'6');
+    scaledGameboard.setCell(0,1,2,0,'7');
+    scaledGameboard.setCell(0,1,2,1,'8');
+    scaledGameboard.setCell(0,1,2,2,'9');
     scaledGameboard.displayGrid();
+    std::cout << scaledGameboard.evaluateEachGrid(0,1) << std::endl;
     return 0;
 }

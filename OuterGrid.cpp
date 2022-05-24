@@ -22,31 +22,55 @@ void OuterGrid::setCell(int gridX, int gridY, int x, int y, char state){
     outerboard[gridX][gridY]->setCell(x,y,state);
 }
 
-bool OuterGrid::evaluateGrid(){
+char OuterGrid::getCell(int gridX, int gridY, int x,int y){
+    return outerboard[gridX][gridY]->getCell(x,y);
+}
+
+void OuterGrid::setWonGrid(int gridX, int gridY){
+    if(outerboard[gridX][gridY]->evaluateGrid()==true){
+        board[gridX][gridY]=outerboard[gridX][gridY]->getWinner();
+    }
+}
+
+bool OuterGrid::evaluateEachGrid(int gridX, int gridY){
+    if(outerboard[gridX][gridY]->evaluateGrid()==true){
+        return 1;
+    }
     return 0;
 }
 
-void OuterGrid::displayGrid(){
-    for(int r=0; r<3; r++){
-        for(int c=0; c<3; c++){
-            outerboardDisplay[r][c]=outerboard[r][c]->board[r][c];
-        }
-    }
-    std::cout << " --- --- ---+--- --- ---+--- --- ---" << std::endl;
-    for(int outerrow=0; outerrow<3; outerrow++){
-        for(int outercol=0; outercol<3; outercol++){
-            std::cout << "|";
-            for(int innerrow=0; innerrow<3; innerrow++){
-                for(int innercol=0; innercol<3; innercol++){
-                    if(outerboard[outerrow][outercol]->getCell(innerrow,innercol)=='\0'){
-                std::cout << "   |";
+Grid OuterGrid::getGrid(int gridX, int gridY){
+    return *outerboard[gridX][gridY];
+}
+
+void OuterGrid::displayOuterGrid(){
+    for(int i=0; i<3; i++){
+        for(int j=0; j<3; j++){
+            for(int x=0; x<3; x++){
+                for(int y=0; y<3; y++){
+                    if(board[i][j]=='\0'){
+                        outerboardDisplay[3*i+x][3*j+y]=outerboard[i][j]->getCell(x,y);
                     } else {
-                std::cout << " " << outerboard[outerrow][outercol]->getCell(innerrow,innercol) << " |";
+                        outerboardDisplay[3*i+x][3*j+y]=board[i][j];
                     }
                 }
             }
-            std::cout << std::endl;
-            std::cout << " --- --- ---+--- --- ---+--- --- ---" << std::endl;
+        }
+    }
+    std::cout << "+-----------+-----------+-----------+" << std::endl;
+    for(int row=0; row<9; row++){
+        std::cout << "|";
+        for(int col=0; col<9; col++){
+            if(outerboardDisplay[row][col]=='\0'){
+                std::cout << "   |";
+            } else {
+                std::cout << " " << outerboardDisplay[row][col] << " |";
+            }
+        }
+        if(row%3==2){
+            std::cout << std::endl << "+-----------+-----------+-----------+" << std::endl;
+        } else {
+        std::cout << std::endl << "|--- --- ---|--- --- ---|--- --- ---|" << std::endl;
         }
     }
 }

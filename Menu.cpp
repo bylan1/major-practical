@@ -7,6 +7,10 @@ extern void clr();
 Menu::Menu() : selection(0){
 }
 
+int Menu::getSelection(){
+    return selection;
+}
+
 // determines selection based on user's input
 void Menu::setSelection(){
     std::cout << "Pick a selection: ";

@@ -10,10 +10,10 @@ Grid::Grid(){
             board[i][j] = '\0';
         }
     }
+    winnerMarker = '\0';
 }
 
 void Grid::setCell(int x,int y,char state){
-    // invalidate cells with non-null states
     board[x][y] = state;
 }
 
@@ -46,13 +46,33 @@ bool Grid::evaluateGrid(){
     return false;
 }
 
+bool Grid::drawGame(){
+    int temp = 0;
+    for(int row = 0; row<3; row++){
+        for(int col = 0; col<3; col++){
+            if(board[row][col]!='\0'){
+                temp++;                
+            }
+        }
+    }
+    if(temp==9){
+        return true;
+    } else {
+    return false;
+    }
+}
+
 char Grid::getWinner(){
     return winnerMarker;
 }
 
 void Grid::displayGrid(){
     for(int row=0; row<3; row++){
-        std::cout << " --- --- ---" << std::endl;
+        if(row==0){
+            std::cout << "+-----------+" << std::endl;
+        } else {
+        std::cout << "|--- --- ---|" << std::endl;
+        }
         std::cout << "|";
         for(int col=0; col<3; col++){
             if(board[row][col]=='\0'){
@@ -63,5 +83,5 @@ void Grid::displayGrid(){
         }
         std::cout << std::endl;
     }
-    std::cout << " --- --- ---" << std::endl;
+    std::cout << "+-----------+" << std::endl;
 }

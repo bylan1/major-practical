@@ -4,52 +4,46 @@
 #include "Menu.h"
 #include "MainMenu.h"
 #include "Options.h"
+#include "GameRun.h"
 #include <iostream>
+
+extern void clr();
 
 Game::Game(){
 }
 
 void Game::run(){
-    menu.display();
-    menu.setSelection();
-    switch(menu.getSelection()){
-        case 1:
-            player1.setName();
-            player1.setMarker();
-            player2.setName();
-            player2.setMarker();
-            while(player2.getMarker()==player1.getMarker()){
-                player2.setMarker();
-            }
-            gameboard.displayGrid();
-            while(gameboard.evaluateGrid()==false){
-                player1.setMove();
-                gameboard.setCell(player1.getRow(player1.getMoveInput()), player1.getCol(player1.getMoveInput()), player1.getMarker());
-                gameboard.displayGrid();
-                if(gameboard.evaluateGrid()!=false){
-                    break;
+    while(menu.getSelection()!=4){
+        clr();
+        menu.display();
+        menu.setSelection();
+        switch(menu.getSelection()){
+            case 1:
+                game.runGame(options.getScale(), player1, player2);
+                break;
+            case 2:
+                std::cout << "under construction" << std::endl;
+                break;
+            case 3:
+                options.display();
+                options.setSelection();
+                while(options.getSelection()!=3){
+                    options.display();
+                    if(options.getSelection()>=1 && options.getSelection()<=2){
+                        std::cout << "set to grid scale " << options.getSelection() << "!" << std::endl;
+                    }
+                    options.setSelection();
+                    if(options.getSelection()>=1 && options.getSelection()<=2){
+                        std::cout << "set to grid scale " << options.getSelection() << "!" << std::endl;
+                        options.setScale(options.getSelection());
+                    }
                 }
-                player2.setMove();
-                gameboard.setCell(player2.getRow(player2.getMoveInput()), player2.getCol(player2.getMoveInput()), player2.getMarker());
-                gameboard.displayGrid();
-            }
-            if(player1.getMarker()==gameboard.getWinner()){
-                std::cout << player1.getName() << " has won!" << std::endl;
-            }
-            if(player2.getMarker()==gameboard.getWinner()){
-                std::cout << player2.getName() << " has won!" << std::endl;
-            }
-            break;
-        case 2:
-            std::cout << "under construction" << std::endl;
-            break;
-        case 3:
-            options.display();
-            options.setSelection();
-            std::cout << "under construction" << std::endl;
-            break;
-        case 4:
-            std::cout << "Goodbye!" << std::endl;
-            break;
+                break;
+            case 4:
+                std::cout << "Goodbye!" << std::endl;
+                break;
+            default:
+                std::cout << "Invalid input. ";
+        }
     }
 }

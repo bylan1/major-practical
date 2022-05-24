@@ -45,9 +45,11 @@ char Player::getMarker(){
 
 // sets the move of the player
 void Player::setGrid(){
+    inputString.clear();
     std::cout << "Enter choice of grid (1-9): ";
     std::cin >> inputString;
-    while(!(std::stoi(inputString) >= 1 && std::stoi(inputString) <= 9)){
+    while(!(inputString=="1" || inputString=="2" || inputString=="3" || inputString=="4" || inputString=="5" || inputString=="6" || inputString=="7" || inputString=="8" || inputString=="9")){
+        inputString.clear();
         std::cout << "Invalid input. Enter choice of grid (1-9): ";
         std::cin >> inputString;
     }
@@ -60,9 +62,11 @@ int Player::getGridInput(){
 
 // sets the move of the player
 void Player::setMove(){
+    inputString.clear();
     std::cout << "Enter choice of square (1-9): ";
     std::cin >> inputString;
-    while(!(std::stoi(inputString) >= 1 && std::stoi(inputString) <= 9)){
+    while(!(inputString=="1" || inputString=="2" || inputString=="3" || inputString=="4" || inputString=="5" || inputString=="6" || inputString=="7" || inputString=="8" || inputString=="9")){
+        inputString.clear();
         std::cout << "Invalid input. Enter choice of square (1-9): ";
         std::cin >> inputString;
     }
@@ -81,6 +85,6 @@ int Player::getRow(int inputValue){
 
 // returns the column of which the player's move is
 int Player::getCol(int inputValue){
-    colValue = (inputValue+2)%3;
+    colValue = (inputValue-1)%3;
     return colValue;
 }

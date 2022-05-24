@@ -7,8 +7,10 @@ class Options : public Menu{
     private:
         int scale;
     public:
-        Options();
-        void display();
+        Options(); // default constructor
+        void display(); // displays the options menu
+        void setScale(int input);
+        int getScale();
 };
 
 #endif

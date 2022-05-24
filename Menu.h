@@ -7,6 +7,7 @@ class Menu{
     public:
         Menu();
         virtual void setSelection();
+        int getSelection();
         virtual void display() = 0;
 };
 
