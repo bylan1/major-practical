@@ -16,7 +16,7 @@ class Game{
         Player player2;
     public:
         Game(); // default constructor
-        void run(); // runs entire game of ultimate tictactoe
+        void run(); // runs the menu to play the full game of ultimate tictactoe
 };
 
 #endif

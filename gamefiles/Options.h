@@ -9,8 +9,8 @@ class Options : public Menu{
     public:
         Options(); // default constructor
         void display(); // displays the options menu
-        void setScale(int input);
-        int getScale();
+        void setScale(int input); // sets the scale of the grid for gameplay
+        int getScale(); // returns the scale of the grid
 };
 
 #endif

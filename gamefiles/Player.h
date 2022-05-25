@@ -21,8 +21,8 @@ class Player{
         void setMove(); // sets the player's move
         int getGridInput(); // returns grid input
         int getMoveInput(); // returns move input
-        int getRow(int inputValue); // returns the row of the player's move
-        int getCol(int inputValue); // returns the column of the player's move
+        int getRow(int inputValue); // returns the row of an input
+        int getCol(int inputValue); // returns the column of an input
 };
 
 #endif

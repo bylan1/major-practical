@@ -5,7 +5,7 @@
 class MainMenu : public Menu{
     public:
         MainMenu(); // default constructor
-        void display(); // displays menu
+        void display(); // displays the main menu
 };
 
 #endif

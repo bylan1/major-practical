@@ -24,10 +24,9 @@ int main(){
     clr();
     board2->displayGrid();
     board2->displayOuterGrid();
-    // fix stuff
     while(board2->evaluateGrid()==false){
         p1.setGrid();
-        while(board2->evaluateEachGrid(p1.getRow(p1.getGridInput()),p1.getCol(p1.getGridInput()))==true){
+        while(board2->getGrid(p1.getRow(p1.getGridInput()),p1.getCol(p1.getGridInput())).evaluateGrid()==true){
             std::cout << "Grid completed. ";
             p1.setGrid();
         }
@@ -44,9 +43,11 @@ int main(){
         board2->displayOuterGrid();
         if(board2->evaluateGrid()==true){
             break;
+        } else if(board2->drawGame()==true){
+            break;
         }
         p2.setGrid();
-        while(board2->evaluateEachGrid(p2.getRow(p2.getGridInput()),p2.getCol(p2.getGridInput()))==true){
+        while(board2->getGrid(p2.getRow(p2.getGridInput()),p2.getCol(p2.getGridInput())).evaluateGrid()==true){
             std::cout << "Grid completed. ";
             p2.setGrid();
         }

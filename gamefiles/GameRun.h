@@ -10,9 +10,9 @@ class GameRun{
         OuterGrid* board2;
         int winCase;
     public:
-        GameRun();
-        void runGame(int gamemode, Player p1, Player p2);
-        ~GameRun();
+        GameRun(); // default constructor
+        void runGame(int gamemode, Player p1, Player p2); // runs the gameplay component of ultimate tictactoe
+        ~GameRun(); // default deconstructor
 };
 
 #endif
